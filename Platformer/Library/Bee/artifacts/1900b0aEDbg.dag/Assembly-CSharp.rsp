@@ -375,7 +375,11 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.22f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/ExitGame.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/MobMovement.cs"
+"Assets/Scripts/MobMovementJump.cs"
 "Assets/Scripts/StartBTN.cs"
+"Assets/Scripts/Timer.cs"
+"Assets/Scripts/TimerStarter.cs"
 -langversion:9.0
 
 /deterministic
