@@ -15,6 +15,20 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private static GameManager instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject); // Avoid having multiple instances of GameManager
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject); // Persist across scenes
+    }
+
     // Update is called once per frame
     void Update()
     {
