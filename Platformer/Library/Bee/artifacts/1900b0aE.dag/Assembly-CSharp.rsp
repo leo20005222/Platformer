@@ -382,6 +382,7 @@
 "Assets/Scripts/MobMovement.cs"
 "Assets/Scripts/MobMovementJump.cs"
 "Assets/Scripts/PersistentUiManager.cs"
+"Assets/Scripts/PlayerSoundController.cs"
 "Assets/Scripts/Projectile.cs"
 "Assets/Scripts/ProjectileSpawner.cs"
 "Assets/Scripts/RestartGameManager.cs"
