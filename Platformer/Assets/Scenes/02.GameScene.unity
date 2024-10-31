@@ -1139,7 +1139,7 @@ GameObject:
   - component: {fileID: 133983679}
   - component: {fileID: 133983684}
   - component: {fileID: 133983683}
-  - component: {fileID: 133983682}
+  - component: {fileID: 133983685}
   - component: {fileID: 133983681}
   - component: {fileID: 133983680}
   m_Layer: 0
@@ -1220,23 +1220,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.00000023841858}
   m_Size: {x: 1.05, y: 1.28}
   m_Direction: 0
---- !u!114 &133983682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 133983678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84f8d8f828b0fef47861e92629087535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody2D1: {fileID: 133983683}
-  walk_speed: 3
-  left_end_point: {fileID: 2702267}
-  right_end_point: {fileID: 440630911}
-  spriteRenderer: {fileID: 133983684}
 --- !u!50 &133983683
 Rigidbody2D:
   serializedVersion: 4
@@ -1316,6 +1299,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &133983685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133983678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a45fe6670bff6c4eb886021b601bf12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
 --- !u!1 &177440898
 GameObject:
   m_ObjectHideFlags: 0
@@ -8799,7 +8795,7 @@ GameObject:
   - component: {fileID: 1367869793}
   - component: {fileID: 1367869798}
   - component: {fileID: 1367869797}
-  - component: {fileID: 1367869796}
+  - component: {fileID: 1367869799}
   - component: {fileID: 1367869795}
   - component: {fileID: 1367869794}
   m_Layer: 0
@@ -8880,23 +8876,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.00000023841858}
   m_Size: {x: 1.05, y: 1.28}
   m_Direction: 0
---- !u!114 &1367869796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1367869792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84f8d8f828b0fef47861e92629087535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody2D1: {fileID: 1367869797}
-  walk_speed: 3
-  left_end_point: {fileID: 2702267}
-  right_end_point: {fileID: 440630911}
-  spriteRenderer: {fileID: 1367869798}
 --- !u!50 &1367869797
 Rigidbody2D:
   serializedVersion: 4
@@ -8976,6 +8955,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1367869799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367869792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a45fe6670bff6c4eb886021b601bf12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
 --- !u!1 &1374292350
 GameObject:
   m_ObjectHideFlags: 0
