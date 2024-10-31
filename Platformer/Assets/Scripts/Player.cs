@@ -70,7 +70,6 @@ public class Player : MonoBehaviour
         limit_jump_num = 2;
         // 현재 점프상태는 아니라고 설정
         is_jump = false;
-        // 목숨 UI 업데이트
         GameManager.instance.UpdateLife();
     }
 

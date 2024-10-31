@@ -385,6 +385,7 @@
 "Assets/Scripts/NewBehaviourScript.cs"
 "Assets/Scripts/PersistentUiManager.cs"
 "Assets/Scripts/Player.cs"
+"Assets/Scripts/PlayerSoundController.cs"
 "Assets/Scripts/Projectile.cs"
 "Assets/Scripts/ProjectileSpawner.cs"
 "Assets/Scripts/RestartGameManager.cs"

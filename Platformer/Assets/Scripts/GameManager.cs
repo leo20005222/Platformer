@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -64,8 +63,10 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
     private void Start()
     {
+        GameManager.instance.UpdateLife();
         // 플레이어의 최대 목숨수 만큼 반복하여
         for (int i = 0; i < player.max_life; i++)
         {
@@ -75,7 +76,6 @@ public class GameManager : MonoBehaviour
             life[i].sprite = live_flower;
         }
     }
-
     // 화면 내 목숨 UI 업데이트 함수
     public void UpdateLife()
     {
