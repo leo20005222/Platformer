@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 53
+  controlID: 78
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 122
+  controlID: 27
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -554,7 +554,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -562,15 +562,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 61
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts
   m_LastFoldersGridSize: 61
   m_LastProjectPath: "C:\\Users\\\uAE40\uBBFC\uAD11\\Documents\\GitHub\\platformer\\Platformer"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 54670000
-    m_LastClickedID: 26452
+    m_SelectedIDs: 56670000
+    m_LastClickedID: 26454
     m_ExpandedIDs: 000000002a6700002c6700002e6700003067000032670000346700003667000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -626,7 +626,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300000000000098610000e862000044630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 266}
     m_GridSize: 61
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 177.66667
@@ -739,9 +739,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: fc110000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: eaf6ffff6af8ffffe2f9ffff1afbffffc067000036680000d677000072780000ca780000da7a0000e67a0000667d00006a80000076800000
+      m_ExpandedIDs: b4f6ffff74f7ffffcef7ffff2ef8ffff98f8fffffef8ffff5cf9ffffe0f9ffff1afbffffe2690000d66a0000f66c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

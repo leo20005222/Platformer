@@ -3364,6 +3364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd92af439cb80c4eb7f1c8df13fc6c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameOver: {fileID: 1139987268}
+  GameStop: {fileID: 1718005855}
 --- !u!1 &389544853
 GameObject:
   m_ObjectHideFlags: 0
