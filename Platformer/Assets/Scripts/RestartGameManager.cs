@@ -8,7 +8,7 @@ public class RestartGameManager : MonoBehaviour
     // Restart the game from the first scene (e.g., "Scene1")
     public void RestartFromStart()
     {
-        SceneManager.LoadScene("FirstScene"); // Replace "Scene1" with the name of your first scene
+        SceneManager.LoadScene("CutScene1"); // Replace "Scene1" with the name of your first scene
     }
 
     // Restart the game from the current active scene
