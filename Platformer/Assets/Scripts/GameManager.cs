@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public Text GameTimeText;
     public GameObject GameOverCanvas;
     public GameObject GameStopCanvas;
+    public GameObject Player;
+    public GameObject Enemy;
     public static GameManager instance;
     public Player player;
     // 게임 화면 내 목숨 UI 아이콘들 리스트
@@ -47,6 +49,8 @@ public class GameManager : MonoBehaviour
         if ((int)GameTime == 0)
         {
             GameOverCanvas.SetActive(true);
+            Player.SetActive(false);
+            Enemy.SetActive(false);
             Time.timeScale = 0f;
         }
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -54,11 +58,15 @@ public class GameManager : MonoBehaviour
             if (Time.timeScale == 0)
             {
                 GameStopCanvas.SetActive(false);
+                Player.SetActive(true);
+                Enemy.SetActive(true);
                 Time.timeScale = 1f;
             }
             else
             {
                 GameStopCanvas.SetActive(true);
+                Player.SetActive(false);
+                Enemy.SetActive(false);
                 Time.timeScale = 0f;
             }
         }
