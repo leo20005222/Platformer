@@ -24,10 +24,6 @@ public class GameManager : MonoBehaviour
     public List<GameObject> enemies = new List<GameObject>();
     // 적 오브젝트들의 초기 위치
     public List<Vector3> enemy_init_pos = new List<Vector3>();
-
-    // 재시작 UI
-    public GameObject reset_window;
-    // 스테이지 성공 UI
     public GameObject success_window;
 
     private void Awake()

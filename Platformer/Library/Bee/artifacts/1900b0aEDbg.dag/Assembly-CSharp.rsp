@@ -376,6 +376,7 @@
 "Assets/Scripts/AudioManager.cs"
 "Assets/Scripts/CameraMovement.cs"
 "Assets/Scripts/CameraMovement2.cs"
+"Assets/Scripts/CutsceneManager.cs"
 "Assets/Scripts/Enemy.cs"
 "Assets/Scripts/ExitGame.cs"
 "Assets/Scripts/GameManager.cs"

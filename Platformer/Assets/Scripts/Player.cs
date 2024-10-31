@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -101,6 +98,10 @@ public class Player : MonoBehaviour
     private void Start()
     {
         Init();
+    }
+    void AssignRemoteLayer()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Player");
     }
 
     private void Update()
@@ -378,7 +379,7 @@ public class Player : MonoBehaviour
         if (now_life == 0)
         {
             // 재시작 UI 실행후
-            GameManager.instance.reset_window.SetActive(true);
+            GameManager.instance.GameOverCanvas.SetActive(true);
             // 게임 일시정지
             Time.timeScale = 0;
         }
