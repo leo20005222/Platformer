@@ -39,7 +39,7 @@ public class EntityMovement : MonoBehaviour
         void OnCollisionEnter2D(Collision2D collision)
     {
         // 충돌한 오브젝트의 태그가 "Mob"일 때
-        if (collision.gameObject.CompareTag("Mob"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             direction *= -1; // 방향 전환
         }

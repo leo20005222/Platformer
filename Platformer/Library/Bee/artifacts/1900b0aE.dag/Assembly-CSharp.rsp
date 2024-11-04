@@ -390,6 +390,7 @@
 "Assets/Scripts/ProjectileSpawner.cs"
 "Assets/Scripts/RestartGameManager.cs"
 "Assets/Scripts/SceneSwitch.cs"
+"Assets/Scripts/SoundManager.cs"
 "Assets/Scripts/StartBTN.cs"
 "Assets/Scripts/Timer.cs"
 "Assets/Scripts/TimerStarter.cs"
