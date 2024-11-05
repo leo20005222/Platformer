@@ -7137,7 +7137,11 @@ MonoBehaviour:
   stageClearSource: {fileID: 521831575}
   endingSource: {fileID: 0}
   mainLobbySource: {fileID: 0}
-  stageBackgroundSources: []
+  stageBackgroundSources:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   hpMinusSource3: {fileID: 201337890}
   hpMinusSource2: {fileID: 2122491069}
   hpLowSource: {fileID: 2122491069}
