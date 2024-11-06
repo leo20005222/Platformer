@@ -83,6 +83,17 @@ public class GameManager : MonoBehaviour
             // 목숨 이미지를 목숨이 있는 이미지로 설정
             life[i].sprite = live_flower;
         }
+        if (GameTimeText == null) Debug.LogError("GameTimeText is not assigned.");
+        if (life.Count == 0) Debug.LogError("Life list is empty.");
+        if (player == null) Debug.LogError("Player is not assigned.");
+
+        GameManager.instance.UpdateLife();
+
+        for (int i = 0; i < player.max_life; i++)
+        {
+            life[i].enabled = true;
+            life[i].sprite = live_flower;
+        }
     }
     // 화면 내 목숨 UI 업데이트 함수
     public void UpdateLife()

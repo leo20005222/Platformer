@@ -97,6 +97,9 @@ public class Player : MonoBehaviour
     private void Start()
     {
         Init();
+        Debug.Log("Player Start Position: " + GameManager.instance.player_init_pos);
+        Debug.Log("Is Platform Detected: " + Physics2D.Raycast(rigidbody2D1.position, Vector2.down, 1, LayerMask.GetMask("Platform")).collider != null);
+
     }
     void AssignRemoteLayer()
     {
@@ -383,4 +386,5 @@ public class Player : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+
 }
