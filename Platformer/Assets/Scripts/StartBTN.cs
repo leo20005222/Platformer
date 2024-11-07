@@ -18,6 +18,6 @@ public class StartBTN : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("02.GameScene");
+        SceneManager.LoadScene("CutScene1");
     }
 }

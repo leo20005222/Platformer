@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         // 현재 목숨 수를 최대치로 설정
         now_life = max_life;
         // 처음 시작 위치로 지정
-        transform.position = GameManager.instance.player_init_pos;
+        //transform.position = GameManager.instance.player_init_pos;
         // 정지 애니메이션으로 세팅
         animator.SetTrigger("Stop");
         // 현재 이동방향을 0으로 우선 초기화
@@ -97,9 +97,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         Init();
-        Debug.Log("Player Start Position: " + GameManager.instance.player_init_pos);
-        Debug.Log("Is Platform Detected: " + Physics2D.Raycast(rigidbody2D1.position, Vector2.down, 1, LayerMask.GetMask("Platform")).collider != null);
-
     }
     void AssignRemoteLayer()
     {

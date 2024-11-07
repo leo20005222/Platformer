@@ -8,12 +8,13 @@ public class RestartGameManager : MonoBehaviour
     // Restart the game from the first scene (e.g., "Scene1")
     public GameObject GameOver;
     public GameObject GameStop;
+
     public void RestartFromStart()
     {
         SceneManager.LoadScene("CutScene1"); // Replace "Scene1" with the name of your first scene
         GameOver.SetActive(false);
         GameStop.SetActive(false);
-        Time.timeScale = 1f;
+        Time.timeScale = 0;
     }
 
     // Restart the game from the current active scene

@@ -407,7 +407,7 @@ Transform:
   m_GameObject: {fileID: 58562856}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -911.3, y: -444, z: 0}
+  m_LocalPosition: {x: -849.9219, y: -444, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3430,7 +3430,7 @@ MonoBehaviour:
   GameStopCanvas: {fileID: 1718005855}
   Player: {fileID: 2066254498}
   Enemy: {fileID: 609091518}
-  player: {fileID: 0}
+  player: {fileID: 58562865}
   life:
   - {fileID: 2122491067}
   - {fileID: 441282732}
@@ -4155,7 +4155,7 @@ Transform:
   m_GameObject: {fileID: 462359567}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 550, y: 350, z: -8.241093}
+  m_LocalPosition: {x: 550, y: 350, z: -0.3125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16491,7 +16491,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1837531267}
   - {fileID: 521831574}
-  - {fileID: 462359570}
   - {fileID: 943227261}
   - {fileID: 2120933924}
   - {fileID: 2066254499}
@@ -16499,3 +16498,4 @@ SceneRoots:
   - {fileID: 382622904}
   - {fileID: 927097592}
   - {fileID: 1574816621}
+  - {fileID: 462359570}
