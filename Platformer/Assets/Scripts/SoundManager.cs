@@ -2,24 +2,26 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    // Singleton instance
     public static SoundManager instance;
 
-    public AudioSource uiClickSource;
-    public AudioSource stageClearSource;
-    public AudioSource endingSource;
-    public AudioSource mainLobbySource;
-    public AudioSource[] stageBackgroundSources; // Array for stage background sounds
-    public AudioSource hpMinusSource3;
-    public AudioSource hpMinusSource2;
-    public AudioSource hpLowSource;
-    public AudioSource gameOverSource;
+    // Audio Source to play the clips
+    public AudioSource audioSource;
+
+    // AudioClips
+    public AudioClip uiClickClip;
+    public AudioClip stageClearClip;
+    public AudioClip loseHealthClip;
+    public AudioClip hpLowClip;
+    public AudioClip gameOverClip;
 
     private void Awake()
     {
+        // Singleton pattern to maintain one SoundManager instance
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // Persist this GameObject across scenes
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -27,19 +29,28 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlayUIClickSound() => uiClickSource.Play();
-    public void PlayStageClearSound() => stageClearSource.Play();
-    public void PlayEndingSound() => endingSource.Play();
-    public void PlayMainLobbySound() => mainLobbySource.Play();
-    public void PlayStageBackgroundSound(int stageIndex)
+    // Method to play a given AudioClip
+    public void PlaySound(AudioClip clip)
     {
-        if (stageIndex >= 0 && stageIndex < stageBackgroundSources.Length)
+        if (audioSource != null && clip != null)
         {
-            stageBackgroundSources[stageIndex].Play();
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning("SoundManager: Missing AudioClip or AudioSource.");
         }
     }
-    public void PlayHpMinusSound3() => hpMinusSource3.Play();
-    public void PlayHpMinusSound2() => hpMinusSource2.Play();
-    public void PlayHpLowSound() => hpLowSource.Play();
-    public void PlayGameOverSound() => gameOverSource.Play();
+
+    // Specific methods to play individual sounds
+    public void PlayUIClickSound() => PlaySound(uiClickClip);
+
+    public void PlayStageClearSound() => PlaySound(stageClearClip);
+
+    public void PlayLoseHealthSound() => PlaySound(loseHealthClip);
+
+    public void PlayHpLowSound() => PlaySound(hpLowClip);
+
+    public void PlayGameOverSound() => PlaySound(gameOverClip);
 }

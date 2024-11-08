@@ -363,6 +363,15 @@ public class Player : MonoBehaviour
     // 적과 충돌 처리
     public void Hit()
     {
+        //플레이어 목숨 감소 사운드
+        if (now_life > 1)
+        {
+            SoundManager.instance.PlayLoseHealthSound();
+        }
+        else if (now_life == 1)
+        {
+            SoundManager.instance.PlayHpLowSound();
+        }
         // 충돌 후 1초간 무적으로 처리
         is_Invincibility = true;
         // 레이어를 Invincibility로 설정
@@ -377,6 +386,8 @@ public class Player : MonoBehaviour
         // 목숨 수가 0이면
         if (now_life == 0)
         {
+            //게임오버 음악 재생
+            SoundManager.instance.PlayGameOverSound();
             // 재시작 UI 실행후
             GameManager.instance.GameOverCanvas.SetActive(true);
             // 게임 일시정지
