@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private float GameTime = 11;
+    public float GameTime = 11;
     public Text GameTimeText;
     public GameObject GameOverCanvas;
     public GameObject GameStopCanvas;
@@ -65,8 +65,15 @@ public class GameManager : MonoBehaviour
             else
             {
                 GameStopCanvas.SetActive(true);
-                Player.SetActive(false);
-                Enemy.SetActive(false);
+                if(Player)
+                {
+                    Player.SetActive(false);
+                }
+                if(Enemy)
+                {
+                    Enemy.SetActive(false);
+                }
+               
                 Time.timeScale = 0f;
             }
         }
@@ -74,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        GameTime = 11;
         GameManager.instance.UpdateLife();
         // 플레이어의 최대 목숨수 만큼 반복하여
         for (int i = 0; i < player.max_life; i++)
@@ -83,9 +91,6 @@ public class GameManager : MonoBehaviour
             // 목숨 이미지를 목숨이 있는 이미지로 설정
             life[i].sprite = live_flower;
         }
-        if (GameTimeText == null) Debug.LogError("GameTimeText is not assigned.");
-        if (life.Count == 0) Debug.LogError("Life list is empty.");
-        if (player == null) Debug.LogError("Player is not assigned.");
 
         GameManager.instance.UpdateLife();
 

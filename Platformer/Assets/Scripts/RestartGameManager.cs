@@ -20,8 +20,11 @@ public class RestartGameManager : MonoBehaviour
     // Restart the game from the current active scene
     public void RestartCurrentScene()
     {
+        GameObject.FindAnyObjectByType<GameManager>().GameTime = 11;
         Scene currentScene = SceneManager.GetActiveScene(); // Get the current scene
         SceneManager.LoadScene(currentScene.name); // Reload the current scene by name
+
+        
         GameOver.SetActive(false);
         GameStop.SetActive(false);
         Time.timeScale = 1f;
