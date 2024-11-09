@@ -46,8 +46,6 @@ public class Enemy : MonoBehaviour
             is_left = false;
             dir = 1;
 
-            // 방향에 따라 적 스프라이트 뒤집기
-            spriteRenderer.flipX = true;
         }
         // 오른쪽으로 이동중이었고 현재 적 위치의 x값이 오른쪽 끝 오브젝트의 x값보다 크면 이동경로의 오른쪽 끝에 도달했다는 의미
         else if (transform.position.x >= right_end_point.transform.position.x && !is_left)
@@ -59,8 +57,15 @@ public class Enemy : MonoBehaviour
             is_left = true;
             dir = -1;
 
-            // 방향에 따라 적 스프라이트 뒤집기
+        }
+        if (dir == 1)
+        {
             spriteRenderer.flipX = false;
+        }
+        // 왼쪽이면 뒤집어서 방향 전환
+        else if (dir == -1)
+        {
+            spriteRenderer.flipX = true;
         }
     }
 

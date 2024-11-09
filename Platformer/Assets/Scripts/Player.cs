@@ -70,7 +70,6 @@ public class Player : MonoBehaviour
         limit_jump_num = 2;
         // 현재 점프상태는 아니라고 설정
         is_jump = false;
-        GameManager.instance.UpdateLife();
     }
 
     // 적과의 충돌 시 실행

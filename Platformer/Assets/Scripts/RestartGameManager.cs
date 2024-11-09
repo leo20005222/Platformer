@@ -8,6 +8,7 @@ public class RestartGameManager : MonoBehaviour
     // Restart the game from the first scene (e.g., "Scene1")
     public GameObject GameOver;
     public GameObject GameStop;
+    private GameManager gameManager;
 
     public void RestartFromStart()
     {
@@ -16,24 +17,18 @@ public class RestartGameManager : MonoBehaviour
         GameStop.SetActive(false);
         Time.timeScale = 0;
     }
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     // Restart the game from the current active scene
     public void RestartCurrentScene()
     {
         GameObject.FindAnyObjectByType<GameManager>().GameTime = 11;
-        GameObject.FindAnyObjectByType<GameManager>().max_life = 3;
-        
+        gameManager.ResetHealth();
         Scene currentScene = SceneManager.GetActiveScene(); // Get the current scene
         SceneManager.LoadScene(currentScene.name); // Reload the current scene by name
-        for (int i = 0; i < GameObject.FindAnyObjectByType<GameManager>().player.max_life; i++)
-        {
-            // 목숨 이미지 보이게 설정
-            GameObject.FindAnyObjectByType<GameManager>().life[i].enabled = true;
-            // 목숨 이미지를 목숨이 있는 이미지로 설정
-            GameObject.FindAnyObjectByType<GameManager>().life[i].sprite = GameObject.FindAnyObjectByType<GameManager>().live_flower;
-        }
-        GameManager.instance.UpdateLife();
-
         GameOver.SetActive(false);
         GameStop.SetActive(false);
         Time.timeScale = 1f;

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public float GameTime = 11;
-    public float max_life = 3;
+    public int max_life = 3;
     public Text GameTimeText;
     public GameObject GameOverCanvas;
     public GameObject GameStopCanvas;
@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public Player player;
     // 게임 화면 내 목숨 UI 아이콘들 리스트
-    public List<Image> life = new List<Image>();
+    //public List<Image> life = new List<Image>();
+    public Image[] lifeImages;
     // 목숨이 있을 때의 이미지
     public Sprite live_flower;
     // 목숨이 없을 때의 이미지
@@ -79,21 +80,31 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
+    public void ResetHealth()
+    {
+        player.max_life = max_life;
+        for (int i = 0; i < lifeImages.Length; i++)
+        {
+            // 목숨 이미지 보이게 설정
+            lifeImages[i].enabled = i < player.max_life;
+            // 목숨 이미지를 목숨이 있는 이미지로 설정
+            lifeImages[i].sprite = live_flower;
+        }
+    }
     private void Start()
     {
         GameTime = 11;
+        player.max_life = max_life;
         GameManager.instance.UpdateLife();
         // 플레이어의 최대 목숨수 만큼 반복하여
-        player.max_life = 3;
         for (int i = 0; i < player.max_life; i++)
         {
             // 목숨 이미지 보이게 설정
-            life[i].enabled = true;
-            // 목숨 이미지를 목숨이 있는 이미지로 설정
-            life[i].sprite = live_flower;
+            lifeImages[i].enabled = i < player.max_life;
+            lifeImages[i].sprite = live_flower;
         }
     }
+    
     // 화면 내 목숨 UI 업데이트 함수
     public void UpdateLife()
     {
@@ -104,13 +115,13 @@ public class GameManager : MonoBehaviour
             if (i < player.now_life)
             {
                 // 목숨이 있는 이미지로 설정
-                life[i].sprite = live_flower;
+                lifeImages[i].sprite = live_flower;
             }
             // i가 현재 목숨 수 값보다 크면
             else
             {
                 // 목숨이 없는 이미지로 설정
-                life[i].sprite = death_flower;
+                lifeImages[i].sprite = death_flower;
             }
         }
     }
