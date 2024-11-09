@@ -32,7 +32,8 @@ public class RestartGameManager : MonoBehaviour
             // 목숨 이미지를 목숨이 있는 이미지로 설정
             GameObject.FindAnyObjectByType<GameManager>().life[i].sprite = GameObject.FindAnyObjectByType<GameManager>().live_flower;
         }
-        
+        GameManager.instance.UpdateLife();
+
         GameOver.SetActive(false);
         GameStop.SetActive(false);
         Time.timeScale = 1f;
