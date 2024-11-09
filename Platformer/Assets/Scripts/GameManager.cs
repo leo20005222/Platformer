@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public float GameTime = 11;
+    public float max_life = 3;
     public Text GameTimeText;
     public GameObject GameOverCanvas;
     public GameObject GameStopCanvas;
@@ -84,19 +85,12 @@ public class GameManager : MonoBehaviour
         GameTime = 11;
         GameManager.instance.UpdateLife();
         // 플레이어의 최대 목숨수 만큼 반복하여
+        player.max_life = 3;
         for (int i = 0; i < player.max_life; i++)
         {
             // 목숨 이미지 보이게 설정
             life[i].enabled = true;
             // 목숨 이미지를 목숨이 있는 이미지로 설정
-            life[i].sprite = live_flower;
-        }
-
-        GameManager.instance.UpdateLife();
-
-        for (int i = 0; i < player.max_life; i++)
-        {
-            life[i].enabled = true;
             life[i].sprite = live_flower;
         }
     }

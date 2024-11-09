@@ -21,9 +21,17 @@ public class RestartGameManager : MonoBehaviour
     public void RestartCurrentScene()
     {
         GameObject.FindAnyObjectByType<GameManager>().GameTime = 11;
+        GameObject.FindAnyObjectByType<GameManager>().max_life = 3;
+        
         Scene currentScene = SceneManager.GetActiveScene(); // Get the current scene
         SceneManager.LoadScene(currentScene.name); // Reload the current scene by name
-
+        for (int i = 0; i < GameObject.FindAnyObjectByType<GameManager>().player.max_life; i++)
+        {
+            // 목숨 이미지 보이게 설정
+            GameObject.FindAnyObjectByType<GameManager>().life[i].enabled = true;
+            // 목숨 이미지를 목숨이 있는 이미지로 설정
+            GameObject.FindAnyObjectByType<GameManager>().life[i].sprite = GameObject.FindAnyObjectByType<GameManager>().live_flower;
+        }
         
         GameOver.SetActive(false);
         GameStop.SetActive(false);
