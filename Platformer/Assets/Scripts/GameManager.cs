@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public float GameTime = 11;
+    public float GameTime = 360;
     public int max_life = 3;
     public Text GameTimeText;
     public GameObject GameOverCanvas;
@@ -82,9 +82,25 @@ public class GameManager : MonoBehaviour
     }
     public void ResetHealth()
     {
+        if (player == null)
+        {
+            Debug.LogError("Player is null in ResetHealth.");
+            return;
+        }
+
+        if (lifeImages == null)
+        {
+            Debug.LogError("lifeImages array is null in ResetHealth.");
+            return;
+        }
         player.max_life = max_life;
         for (int i = 0; i < lifeImages.Length; i++)
         {
+            if (lifeImages[i] == null)
+            {
+                Debug.LogError($"lifeImages[{i}] is null in ResetHealth.");
+                continue; // null인 경우 다음 반복으로 넘어감
+            }
             // 목숨 이미지 보이게 설정
             lifeImages[i].enabled = i < player.max_life;
             // 목숨 이미지를 목숨이 있는 이미지로 설정
@@ -93,7 +109,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        GameTime = 11;
+        GameTime = 60;
         player.max_life = max_life;
         GameManager.instance.UpdateLife();
         // 플레이어의 최대 목숨수 만큼 반복하여
@@ -104,24 +120,36 @@ public class GameManager : MonoBehaviour
             lifeImages[i].sprite = live_flower;
         }
     }
-    
+
     // 화면 내 목숨 UI 업데이트 함수
     public void UpdateLife()
     {
+        if (lifeImages == null || player == null)
+        {
+            Debug.LogError("lifeImages or player is null in UpdateLife.");
+            return;
+        }
         // 플레이어의 최대 목숨 수 만큼 반복
         for (int i = 0; i < player.max_life; i++)
         {
-            // i가 현재 목숨 수 값보다 작은 값이면
-            if (i < player.now_life)
+            if (i < lifeImages.Length && lifeImages[i] != null)
             {
-                // 목숨이 있는 이미지로 설정
-                lifeImages[i].sprite = live_flower;
+                if (i < player.now_life)
+                {
+                    // 목숨이 있는 이미지로 설정
+                    lifeImages[i].sprite = live_flower;
+                    Debug.Log($"lifeImages[{i}] set to live_flower");
+                }
+                else
+                {
+                    // 목숨이 없는 이미지로 설정
+                    lifeImages[i].sprite = death_flower;
+                    Debug.Log($"lifeImages[{i}] set to death_flower");
+                }
             }
-            // i가 현재 목숨 수 값보다 크면
             else
             {
-                // 목숨이 없는 이미지로 설정
-                lifeImages[i].sprite = death_flower;
+                Debug.LogError($"lifeImages[{i}] is out of bounds or null.");
             }
         }
     }

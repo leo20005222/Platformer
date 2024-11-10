@@ -9,7 +9,6 @@ public class CameraMovement : MonoBehaviour
     public float moveSpeed = 2f;     // 카메라가 자동으로 오른쪽으로 움직이는 속도
     public float maxPlayerXOffset = 4.5f; // 플레이어가 카메라 중심에서 벗어날 수 있는 최대 X 좌표
     public Camera mainCamera;        // 카메라의 뷰포트 사용을 위해 필요
-
     private float initialCameraX;
 
     void Start()

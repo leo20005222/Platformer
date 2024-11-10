@@ -86,22 +86,21 @@ public class Player : MonoBehaviour
     // 도착지점 트리거 콜라이더에 들어가면 실행
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // 성공 UI 실행
-        GameManager.instance.success_window.SetActive(true);
-        // 게임은 일시정지
-        Time.timeScale = 0f;
+        if (collision.gameObject.tag == "Map")
+        {
+            // 게임은 일시정지
+            Time.timeScale = 0f;
+            GameObject.FindAnyObjectByType<GameManager>().GameTime = 60;
+        }
+        
     }
 
     // 게임 시작시 플레이어 초기화
     private void Start()
     {
         Init();
+        Time.timeScale = 1f;
     }
-    void AssignRemoteLayer()
-    {
-        gameObject.layer = LayerMask.NameToLayer("Player");
-    }
-
     private void Update()
     {
         // 플레이어 움직임 감지
