@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         // 시작 시 왼쪽방향으로 설정
+        spriteRenderer = GetComponent<SpriteRenderer>();
         is_left = true;
         dir = -1;
     }
@@ -45,6 +46,7 @@ public class Enemy : MonoBehaviour
             // 방향을 오른쪽으로 설정
             is_left = false;
             dir = 1;
+            spriteRenderer.flipX = true;
 
         }
         // 오른쪽으로 이동중이었고 현재 적 위치의 x값이 오른쪽 끝 오브젝트의 x값보다 크면 이동경로의 오른쪽 끝에 도달했다는 의미
@@ -56,16 +58,8 @@ public class Enemy : MonoBehaviour
             // 방향을 왼쪽으로 설정
             is_left = true;
             dir = -1;
-
-        }
-        if (dir == 1)
-        {
             spriteRenderer.flipX = false;
-        }
-        // 왼쪽이면 뒤집어서 방향 전환
-        else if (dir == -1)
-        {
-            spriteRenderer.flipX = true;
+
         }
     }
 
