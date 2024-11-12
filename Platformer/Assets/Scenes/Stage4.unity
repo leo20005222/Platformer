@@ -4975,6 +4975,7 @@ MonoBehaviour:
   backgroundRenderer1: {fileID: 1306240834}
   backgroundRenderer2: {fileID: 1991586398}
   backgroundRenderer3: {fileID: 581936324}
+  uiCanvas1: {fileID: 0}
   uiCanvas: {fileID: 1819673669}
 --- !u!114 &761253055
 MonoBehaviour:
@@ -13065,7 +13066,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 49, y: 54.8}
+  m_AnchoredPosition: {x: 33.1, y: 56.1}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1923345492
@@ -13101,7 +13102,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Success
+  m_Text: Game Clear!
 --- !u!222 &1923345493
 CanvasRenderer:
   m_ObjectHideFlags: 0
