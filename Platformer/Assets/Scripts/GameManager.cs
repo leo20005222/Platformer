@@ -29,9 +29,9 @@ public class GameManager : MonoBehaviour
     public List<Vector3> enemy_init_pos = new List<Vector3>();
     public GameObject success_window;
 
-    private void Awake()
+    public void Awake()
     {
-        if (instance != null)
+        if (instance != null && instance != this)
         {
             Destroy(gameObject); // Avoid having multiple instances of GameManager
             return;
@@ -41,6 +41,21 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject); // Persist across scenes
         }
+        if (player == null)
+        {
+            player = FindObjectOfType<Player>(); // 씬에서 자동으로 Player 객체를 할당
+            if (player == null)
+            {
+                Debug.LogError("Awake: Player 객체를 찾을 수 없습니다. 씬에 올바른 Player 오브젝트가 있는지 확인하세요.");
+            }
+        }
+
+        if (lifeImages == null || lifeImages.Length == 0)
+        {
+            Debug.LogError("Awake: lifeImages 배열이 할당되지 않았습니다. Inspector에서 할당했는지 확인하세요.");
+        }
+
+        ResetHealth();
     }
 
     // Update is called once per frame
@@ -118,6 +133,33 @@ public class GameManager : MonoBehaviour
             // 목숨 이미지 보이게 설정
             lifeImages[i].enabled = i < player.max_life;
             lifeImages[i].sprite = live_flower;
+        }
+        if (player == null)
+        {
+            player = FindObjectOfType<Player>(); // 씬에서 자동으로 Player 객체 찾기
+            if (player == null)
+            {
+                Debug.LogError("Player 객체를 찾을 수 없습니다.");
+            }
+        }
+
+        if (lifeImages == null || lifeImages.Length == 0)
+        {
+            Debug.LogError("lifeImages 배열이 할당되지 않았습니다.");
+        }
+        else
+        {
+            UpdateLife(); // 초기화 시 lifeImages와 player가 정상인지 확인 후 호출
+        }
+    }
+
+    public void SetGameUIVisible(bool v)
+    {
+        GameManager.instance.GameTimeText.gameObject.SetActive(v);
+
+        foreach (var life in GameManager.instance.lifeImages)
+        {
+            life.gameObject.SetActive(v);
         }
     }
 

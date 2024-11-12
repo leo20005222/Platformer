@@ -67,9 +67,10 @@ public class Player : MonoBehaviour
         spriteRenderer.color = color;
 
         // 점프 제한 횟수 2로 설정(이단 점프)
-        limit_jump_num = 2;
+        limit_jump_num = 1;
         // 현재 점프상태는 아니라고 설정
         is_jump = false;
+        GameManager.instance.UpdateLife();
     }
 
     // 적과의 충돌 시 실행
@@ -99,6 +100,16 @@ public class Player : MonoBehaviour
     private void Start()
     {
         Init();
+        if (GameManager.instance == null)
+        {
+            GameManager.instance.UpdateLife();
+        }
+        else
+        {
+            GameManager.instance.SetGameUIVisible(true);
+            GameManager.instance.Awake();
+            Debug.LogError("Player Start: GameManager 인스턴스가 null입니다.");
+        }
         Time.timeScale = 1f;
     }
     private void Update()
@@ -234,7 +245,7 @@ public class Player : MonoBehaviour
     public void Landing_Check()
     {
         // 현재 점프 제한 수가 2이면 점프 전이므로 함수 즉시 종료
-        if (limit_jump_num == 2) return;
+        if (limit_jump_num == 1) return;
 
         // 위아래 속도를 나타내는 속도 y값이 음수일 경우는 떨어지는 중
         if (rigidbody2D1.velocity.y < 0)
@@ -256,7 +267,7 @@ public class Player : MonoBehaviour
                         SetStop();
 
                     // 점프 최대 숫자를 2로 다시 만들기
-                    limit_jump_num = 2;
+                    limit_jump_num = 1;
                     // 점프상태 false로 설정
                     is_jump = false;
                 }
