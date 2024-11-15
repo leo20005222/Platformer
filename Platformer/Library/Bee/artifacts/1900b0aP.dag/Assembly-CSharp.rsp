@@ -339,6 +339,7 @@
 "Assets/Scripts/Player.cs"
 "Assets/Scripts/PlayerSoundController.cs"
 "Assets/Scripts/Projectile.cs"
+"Assets/Scripts/ProjectileHit.cs"
 "Assets/Scripts/ProjectileSpawner.cs"
 "Assets/Scripts/RestartGameManager.cs"
 "Assets/Scripts/SceneSwitch.cs"

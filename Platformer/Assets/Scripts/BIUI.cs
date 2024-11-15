@@ -9,7 +9,6 @@ public class BIUI : MonoBehaviour
     public SpriteRenderer backgroundRenderer1;
     public SpriteRenderer backgroundRenderer2;
     public SpriteRenderer backgroundRenderer3;
-    public Canvas uiCanvas1;
     public Canvas uiCanvas;
     // Start is called before the first frame update
     void Start()
@@ -38,15 +37,6 @@ public class BIUI : MonoBehaviour
         if (uiCanvas != null)
         {
             Canvas[] canvases = uiCanvas.GetComponentsInChildren<Canvas>();
-            foreach (Canvas canvas in canvases)
-            {
-                canvas.sortingLayerName = "UI";
-                canvas.sortingOrder = 100; // 맨 앞쪽으로 설정
-            }
-        }
-        if (uiCanvas1 != null)
-        {
-            Canvas[] canvases = uiCanvas1.GetComponentsInChildren<Canvas>();
             foreach (Canvas canvas in canvases)
             {
                 canvas.sortingLayerName = "UI";

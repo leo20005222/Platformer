@@ -18,6 +18,7 @@ public class CharacterCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        print("Hi!" + uiPanel + "COLLIDED WITHl " + collision.gameObject); 
         // 충돌한 오브젝트의 태그가 지정된 태그와 일치하는지 확인
         if (collision.gameObject.CompareTag(targetTag))
         {

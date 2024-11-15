@@ -93,22 +93,26 @@ public class Player : MonoBehaviour
             Time.timeScale = 0f;
             GameObject.FindAnyObjectByType<GameManager>().GameTime = 60;
         }
-        
+        if (collision.gameObject.tag == "fall")
+        {
+            Time.timeScale = 0f;
+            GameManager.instance.GameOverCanvas.SetActive(true);
+        }
     }
 
     // 게임 시작시 플레이어 초기화
     private void Start()
     {
         Init();
-        if (GameManager.instance == null)
-        {
-            GameManager.instance.UpdateLife();
-        }
-        else
+        if (GameManager.instance != null)
         {
             GameManager.instance.SetGameUIVisible(true);
             GameManager.instance.Awake();
-            Debug.LogError("Player Start: GameManager 인스턴스가 null입니다.");
+            //Debug.LogError("Player Start: GameManager 인스턴스가 null입니다.");
+        }
+        else
+        {
+            Debug.Log("GameManager.instance is null!");
         }
         Time.timeScale = 1f;
     }
@@ -390,7 +394,11 @@ public class Player : MonoBehaviour
         // 목숨 수를 1 감소
         now_life--;
         // 목숨 나타내는 이미지 UI 업데이트
-        GameManager.instance.UpdateLife();
+        if(GameManager.instance != null)
+        {
+            GameManager.instance.UpdateLife();
+        }
+        
 
         // 목숨 수가 0이면
         if (now_life == 0)
@@ -398,7 +406,10 @@ public class Player : MonoBehaviour
             //게임오버 음악 재생
             SoundManager.instance.PlayGameOverSound();
             // 재시작 UI 실행후
-            GameManager.instance.GameOverCanvas.SetActive(true);
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.GameOverCanvas.SetActive(true);
+            }
             // 게임 일시정지
             Time.timeScale = 0;
         }

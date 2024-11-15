@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - LastMan
   - Map
+  - fall
   layers:
   - Default
   - TransparentFX

@@ -20,7 +20,10 @@ public class SceneSwitch : MonoBehaviour
     private IEnumerator LoadCutscene()
     {
         // Turn off UI before loading cutscene
-        GameManager.instance.SetGameUIVisible(false);
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.SetGameUIVisible(false);
+        }
 
         // Load the cutscene scene
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(Cutscene, LoadSceneMode.Single);

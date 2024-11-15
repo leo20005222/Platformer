@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public float GameTime = 360;
+    public float GameTime = 60;
     public int max_life = 3;
     public Text GameTimeText;
     public GameObject GameOverCanvas;
@@ -75,8 +75,14 @@ public class GameManager : MonoBehaviour
             if (Time.timeScale == 0)
             {
                 GameStopCanvas.SetActive(false);
-                Player.SetActive(true);
-                Enemy.SetActive(true);
+                if (Player)
+                {
+                    Player.SetActive(true);
+                }
+                if (Enemy)
+                {
+                    Enemy.SetActive(true);
+                }
                 Time.timeScale = 1f;
             }
             else
@@ -126,7 +132,11 @@ public class GameManager : MonoBehaviour
     {
         GameTime = 60;
         player.max_life = max_life;
-        GameManager.instance.UpdateLife();
+        if(GameManager.instance != null)
+        {
+            GameManager.instance.UpdateLife();
+        }
+        
         // 플레이어의 최대 목숨수 만큼 반복하여
         for (int i = 0; i < player.max_life; i++)
         {
@@ -155,12 +165,17 @@ public class GameManager : MonoBehaviour
 
     public void SetGameUIVisible(bool v)
     {
-        GameManager.instance.GameTimeText.gameObject.SetActive(v);
-
-        foreach (var life in GameManager.instance.lifeImages)
+        if (GameManager.instance != null)
         {
-            life.gameObject.SetActive(v);
+            GameManager.instance.GameTimeText.gameObject.SetActive(v);
+
+
+            foreach (var life in GameManager.instance.lifeImages)
+            {
+                life.gameObject.SetActive(v);
+            }
         }
+
     }
 
     // 화면 내 목숨 UI 업데이트 함수
@@ -168,7 +183,16 @@ public class GameManager : MonoBehaviour
     {
         if (lifeImages == null || player == null)
         {
-            Debug.LogError("lifeImages or player is null in UpdateLife.");
+            if (player == null)
+            {
+                player = FindObjectOfType<Player>(); // 씬에서 자동으로 Player 객체를 할당
+                if (player == null)
+                {
+                    Debug.Log("Awake: Player 객체를 찾을 수 없습니다. 씬에 올바른 Player 오브젝트가 있는지 확인하세요.");
+                }
+            }
+
+            Debug.Log("lifeImages or player is null in UpdateLife.");
             return;
         }
         // 플레이어의 최대 목숨 수 만큼 반복
